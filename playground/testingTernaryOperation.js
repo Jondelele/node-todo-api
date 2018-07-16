@@ -1,10 +1,3 @@
-// let age = 21;
-//
-//
-// console.log(age >= 21 ? "You may enter." : "You may NOT enter.");
+var massit = 1000;
 
-let age = 20;
-
-var viesti = age < 21 ? "You are Not allowed!!" : "You may enter :)";
-
-console.log(viesti);
+console.log(massit > 1000 ? "Voitte tulla sisään" : "Ette voi tulla sisään");
