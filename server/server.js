@@ -1,10 +1,10 @@
 var express = require('express');
 var bodyParser = require('body-parser');
+var {ObjectID} = require('mongodb');
 
 var {mongoose} = require('./db/mongoose');
 var {Todo} = require('./models/todo');
 var {User} = require('./models/user');
-var {ObjectID} = require('mongodb');
 
 var app = express();
 const port = process.env.PORT || 3000;
@@ -47,14 +47,14 @@ app.get('/todos/:id', (req, res) => {
             return res.status(404).send();
         }
 
-        res.send({todo})
+        res.send({todo});
     }).catch((e) => {
         res.status(400).send();
     });
 });
 
-app.listen(3000, () => {
-    console.log(`Started up at port ${port}`)
+app.listen(port, () => {
+    console.log(`Started up at port ${port}`);
 });
 
 module.exports = {app};
