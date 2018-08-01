@@ -103,7 +103,7 @@ app.patch('/todos/:id', authenticate, (req, res) => {
     res.send({todo});
   }).catch((e) => {
     res.status(400).send();
-  })
+  });
 });
 
 app.post('/users', (req, res) => {
@@ -140,7 +140,7 @@ app.delete('/users/me/token', authenticate,(req, res) => {
     res.status(200).send();
   }, () => {
     res.status(400).send();
-  })
+  });
 });
 
 app.listen(port, () => {
