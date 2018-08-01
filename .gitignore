@@ -1,6 +1,10 @@
 git status
  by https://www.gitignore.io/api/node,windows,pycharm
 
+# Udemy kurssin ignoraamiset alla
+node_modules/
+server/config/config.json
+
 ### Node ###
 # Logs
 logs

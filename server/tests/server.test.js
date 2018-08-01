@@ -206,7 +206,7 @@ describe('PATCH /todos/:id', () => {
 
     it('should clear completedAt when todo is not completed', (done) => {
         var hexId = todos[1]._id.toHexString();
-        var text = "This should be the new text!!!";
+        var text = "This should be the new text!!";
 
         request(app)
             .patch(`/todos/${hexId}`)
@@ -240,7 +240,6 @@ describe('GET /users/me', () => {
     it('should return 401 if not authenticated', (done) => {
         request(app)
             .get('/users/me')
-            .set('x-auth', '')
             .expect(401)
             .expect((res) => {
                 expect(res.body).toEqual({});
@@ -316,8 +315,8 @@ describe('POST /users/login', () => {
                     return done(err);
                 }
 
-                User.findById(users[1]._id).then((users) => {
-                    expect(users.tokens[1]).toInclude({
+                User.findById(users[1]._id).then((user) => {
+                    expect(user.tokens[1]).toInclude({
                         access: 'auth',
                         token: res.headers['x-auth']
                     });
